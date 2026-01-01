@@ -30,7 +30,7 @@ print()
 
 # Load the data into a DataFrame (think of it as a smart spreadsheet)
 # A DataFrame is pandas' main data structure - it organizes data in rows and columns
-data = pd.read_csv('../data/birds.csv')
+data = pd.read_csv("data/birds.csv")
 
 print("✅ Data loaded successfully!")
 print()
