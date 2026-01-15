@@ -10,7 +10,7 @@ What you'll learn:
 - How to handle real-world data issues
 - How to draw meaningful conclusions
 
-Prerequisites: 
+Prerequisites:
 - pandas library (install with: pip install pandas)
 - matplotlib library (install with: pip install matplotlib)
 
@@ -49,7 +49,7 @@ print()
 print("📂 Loading bird strike data...")
 
 try:
-    data = pd.read_csv('../data/birds.csv')
+    data = pd.read_csv("data/birds.csv")
     print(f"✅ Successfully loaded {len(data)} records")
     print()
 except FileNotFoundError:
@@ -127,17 +127,17 @@ print(f"  • Total bird strikes recorded: {total_strikes:,}")
 print()
 
 # Analysis 2: Find the most common bird species
-if 'Bird Species' in data.columns:
+if "Bird Species" in data.columns:
     print("Analysis 2: Most Common Bird Species")
     print("-" * 80)
-    top_species = data['Bird Species'].value_counts().head(5)
+    top_species = data["Bird Species"].value_counts().head(5)
     for i, (species, count) in enumerate(top_species.items(), 1):
         print(f"  {i}. {species}: {count} strikes ({count/total_strikes*100:.1f}%)")
     print()
 
 # Analysis 3: Analyze by time (if time column exists)
 time_column = None
-for col in ['FlightDate', 'Date', 'Time']:
+for col in ["FlightDate", "Date", "Time"]:
     if col in data.columns:
         time_column = col
         break
@@ -156,38 +156,38 @@ print("=" * 80)
 print()
 
 # Visualization 1: Top bird species
-if 'Bird Species' in data.columns:
+if "Bird Species" in data.columns:
     print("Creating visualization 1: Top 10 Bird Species...")
-    top_10_species = data['Bird Species'].value_counts().head(10)
-    
+    top_10_species = data["Bird Species"].value_counts().head(10)
+
     plt.figure(figsize=(12, 6))
-    plt.barh(range(len(top_10_species)), top_10_species.values, color='steelblue')
+    plt.barh(range(len(top_10_species)), top_10_species.values, color="steelblue")
     plt.yticks(range(len(top_10_species)), top_10_species.index)
-    plt.xlabel('Number of Strikes', fontsize=12)
-    plt.ylabel('Bird Species', fontsize=12)
-    plt.title('Top 10 Bird Species Involved in Strikes', fontsize=14, fontweight='bold')
-    plt.grid(axis='x', alpha=0.3)
+    plt.xlabel("Number of Strikes", fontsize=12)
+    plt.ylabel("Bird Species", fontsize=12)
+    plt.title("Top 10 Bird Species Involved in Strikes", fontsize=14, fontweight="bold")
+    plt.grid(axis="x", alpha=0.3)
     plt.tight_layout()
-    plt.savefig('birds_top_species.png', dpi=300, bbox_inches='tight')
+    plt.savefig("birds_top_species.png", dpi=300, bbox_inches="tight")
     plt.close()
     print("  ✅ Saved as 'birds_top_species.png'")
     print()
 
 # Visualization 2: Distribution of another variable
 # Check what columns are available for interesting visualizations
-numeric_columns = data.select_dtypes(include=['int64', 'float64']).columns
+numeric_columns = data.select_dtypes(include=["int64", "float64"]).columns
 if len(numeric_columns) > 0:
     print("Creating visualization 2: Numeric data distribution...")
     col_to_plot = numeric_columns[0]
-    
+
     plt.figure(figsize=(10, 6))
-    data[col_to_plot].hist(bins=30, color='teal', edgecolor='black', alpha=0.7)
+    data[col_to_plot].hist(bins=30, color="teal", edgecolor="black", alpha=0.7)
     plt.xlabel(col_to_plot, fontsize=12)
-    plt.ylabel('Frequency', fontsize=12)
-    plt.title(f'Distribution of {col_to_plot}', fontsize=14, fontweight='bold')
-    plt.grid(axis='y', alpha=0.3)
+    plt.ylabel("Frequency", fontsize=12)
+    plt.title(f"Distribution of {col_to_plot}", fontsize=14, fontweight="bold")
+    plt.grid(axis="y", alpha=0.3)
     plt.tight_layout()
-    plt.savefig('birds_distribution.png', dpi=300, bbox_inches='tight')
+    plt.savefig("birds_distribution.png", dpi=300, bbox_inches="tight")
     plt.close()
     print(f"  ✅ Saved as 'birds_distribution.png'")
     print()
@@ -202,9 +202,9 @@ print("Key Findings:")
 print("-" * 80)
 print(f"  1. We analyzed {total_strikes:,} bird strike incidents")
 
-if 'Bird Species' in data.columns:
-    most_common_species = data['Bird Species'].value_counts().index[0]
-    most_common_count = data['Bird Species'].value_counts().values[0]
+if "Bird Species" in data.columns:
+    most_common_species = data["Bird Species"].value_counts().index[0]
+    most_common_count = data["Bird Species"].value_counts().values[0]
     print(f"  2. Most common species: {most_common_species} ({most_common_count} incidents)")
 
 print()
