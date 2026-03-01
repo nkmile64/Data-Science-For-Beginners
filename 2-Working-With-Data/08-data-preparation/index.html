@@ -6,13 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entry Form</title>
+    <style>
+        body {
+            font-family: Calibri;
+        }
+
+        label {
+            font-family: Calibri;
+            font-size: 1.2em;
+            font-weight: 500;
+            width: 150px;
+            display: inline-block;
+        }
+
+        input {
+            font-family: Calibri;
+            font-size: 1.2em;
+            width: 200px;
+            display: inline-block;
+        }
+
+        select {
+            width: 200px;
+            font-family: Calibri;
+            font-size: 1.2em;
+        }
+
+        button {
+            font-family: Calibri;
+            font-size: 1.2em;
+            padding: 4px 10px;
+            margin: 15px 0;
+        }
+        span {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Please Fill out the Form (* required)</h1>
-    *<label>Birth Month</label> <input type="text"> <br>
+    <label>Birth Month<span>*</span></label> <input type="text"> <br>
     <label>State</label> <input type="text"> <br>
-    <label for="pets">Dogs or Cats?</label> 
+    <label for="pets">Dogs or Cats?</label>
     <select name="pets" id="pets">
         <option value="dogs">Dog</option>
         <option value="cats">Cats</option>
